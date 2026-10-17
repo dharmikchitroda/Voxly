@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Timer App"
+rootProject.name = "Voxly"
 include(":app")
  
