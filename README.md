@@ -6,7 +6,7 @@ Voxly is a modern, minimalist countdown timer application for Android built with
 
 ## ✨ Features
 
-- 🎙️ **Hands-Free Offline Voice Control**: Control your timer completely hands-free using voice commands ("Start", "Stop", "Pause", "Reset") powered by the offline Vosk speech recognition engine.
+- 🎙️ **Hands-Free Offline Voice Control**: Control your timer completely hands-free using voice commands ("Start", "Stop", "Reset") powered by the offline Vosk speech recognition engine.
 - 🗣️ **Smart Voice Countdown (TTS)**: Spoken voice countdown (5s, 10s) and voice alerts (e.g. "Last 10 seconds") using Android Text-to-Speech.
 - 🔔 **Custom Audio Alerts**: Built-in sound effects with support to pick and import any custom audio file from your device.
 - ⏱️ **Retro Digital & Circular UI**: Beautiful circular progress timer with dynamic color shift and retro digital clock display.

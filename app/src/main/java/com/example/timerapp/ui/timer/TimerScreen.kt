@@ -124,7 +124,7 @@ fun TimerScreen(modifier: Modifier = Modifier) {
         }
 
         if (IsEnableVoiceAnnoucment && time == 10) {
-            ttsManager.Speak("last 10 second")
+            ttsManager.Speak("Last 10 seconds")
         }
     }
 

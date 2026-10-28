@@ -237,13 +237,11 @@ class TimerViewmodel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    // intealize for vosk
+    // initialize for vosk
     init {
         vosk.init()
         viewModelScope.launch {
-            viewModelScope.launch {
-                vosk.commands.collect { handleVoiceCommand(it) }
-            }
+            vosk.commands.collect { handleVoiceCommand(it) }
         }
     }
 
