@@ -11,6 +11,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,7 +39,7 @@ fun TimeChooserDialog(
     var minutes by remember { mutableIntStateOf(0) }
     var seconds by remember { mutableIntStateOf(30) }
 
-    Dialog(onDismissRequest = { }) {
+    Dialog(onDismissRequest = onDismiss) {
 
         Card(Modifier.fillMaxWidth()) {
 
@@ -47,8 +48,7 @@ fun TimeChooserDialog(
                     .fillMaxWidth()
                     .padding(25.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-
-                ) {
+            ) {
 
                 Text("Set Duration", fontWeight = FontWeight.Bold)
 
@@ -65,7 +65,7 @@ fun TimeChooserDialog(
                         label = "Minutes",
                         maxValue = 59,
                         onValueChange = { minutes = it },
-                        Modifier.weight(1f)
+                        modifier = Modifier.weight(1f)
                     )
 
                     Column() {
@@ -82,25 +82,40 @@ fun TimeChooserDialog(
                         label = "Seconds",
                         maxValue = 59,
                         onValueChange = { seconds = it },
-                        modifier.weight(1f)
+                        modifier = Modifier.weight(1f)
                     )
                 }
 
                 Spacer(Modifier.height(20.dp))
 
-                Button(
-                    {
-                        viewmodel.SetCustomTime(minutes, seconds)
-                        onDismiss()
-                    },
-                    modifier = Modifier
-                        .height(50.dp)
-                        .fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = colorResource(R.color.Primary)
-                    )
+                Row(
+                    Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
-                    Text("Set Timer", fontSize = 16.sp)
+                    OutlinedButton(
+                        onClick = onDismiss,
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(50.dp)
+                    ) {
+                        Text("Cancel", fontSize = 16.sp)
+                    }
+
+                    Button(
+                        onClick = {
+                            viewmodel.SetCustomTime(minutes, seconds)
+                            onDismiss()
+                        },
+                        enabled = minutes > 0 || seconds > 0,
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(50.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(R.color.Primary)
+                        )
+                    ) {
+                        Text("Set Timer", fontSize = 16.sp)
+                    }
                 }
             }
 
