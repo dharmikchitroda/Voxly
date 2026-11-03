@@ -31,9 +31,11 @@ That is how **Voxly** started.
 ## UI Previews
 
 <p align="center">
-  <img src="voxly1.png" width="140" alt="Voxly main timer preview" />
-  <img src="voxly2.png" width="140" alt="Voxly custom duration preview" />
-  <img src="voxly3.png" width="140" alt="Voxly timer settings preview" />
+  <img src="voxly1.png" width="190" alt="Voxly Home Screen" />
+  &nbsp;&nbsp;
+  <img src="voxly2.png" width="190" alt="Custom Timer Screen" />
+  &nbsp;&nbsp;
+  <img src="voxly3.png" width="190" alt="Timer Settings Screen" />
 </p>
 
 *Note: These are illustrative UI design previews. Refer to the running application for the actual interface and behavior.*
