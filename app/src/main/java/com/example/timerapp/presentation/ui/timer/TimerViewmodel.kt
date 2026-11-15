@@ -1,4 +1,4 @@
-package com.example.timerapp.ui.timer
+package com.example.timerapp.presentation.ui.timer
 
 import android.app.Application
 import android.util.Log
@@ -86,6 +86,7 @@ class TimerViewmodel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+
     fun stop() {
         TimerJob?.cancel()
         _time.value = Intialtime.value
@@ -160,6 +161,7 @@ class TimerViewmodel(app: Application) : AndroidViewModel(app) {
         }
         // voice countdown chips list
         _VoiceCountdownChipsList.value = options
+
     }
 
     fun setime(time: Int) {

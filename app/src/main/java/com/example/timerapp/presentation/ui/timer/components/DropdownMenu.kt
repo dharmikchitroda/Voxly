@@ -1,4 +1,4 @@
-package com.example.timerapp.ui.timer.components
+package com.example.timerapp.presentation.ui.timer.components
 
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.timerapp.data.model.CompletionSoundPreset
-import com.example.timerapp.ui.timer.TimerViewmodel
+import com.example.timerapp.presentation.ui.timer.TimerViewmodel
 
 @Composable
 fun SoundDropdownMenu(

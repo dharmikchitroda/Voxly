@@ -1,13 +1,7 @@
-package com.example.timerapp.ui.timer
+package com.example.timerapp.presentation.ui.timer
 
 
-import android.Manifest
-import android.util.Log
-import android.widget.GridLayout
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,8 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -31,11 +23,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -57,18 +47,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.compose.rememberNavController
 import com.example.timerapp.R
-import com.example.timerapp.ui.timer.components.Bottomsheet
-import com.example.timerapp.ui.timer.components.CustomDurationbtn
-import com.example.timerapp.ui.timer.components.PresetChip
-import com.example.timerapp.ui.timer.components.SoundChip
-import com.example.timerapp.ui.timer.components.TimeChooserDialog
-import com.example.timerapp.ui.timer.components.Topbar
+import com.example.timerapp.presentation.ui.timer.components.Bottomsheet
+import com.example.timerapp.presentation.ui.timer.components.CustomDurationbtn
+import com.example.timerapp.presentation.ui.timer.components.PresetChip
+import com.example.timerapp.presentation.ui.timer.components.SoundChip
+import com.example.timerapp.presentation.ui.timer.components.TimeChooserDialog
+import com.example.timerapp.presentation.ui.timer.components.Topbar
 import com.example.timerapp.util.SounPoolManager
 import com.example.timerapp.util.TtsManager
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,4 +1,4 @@
-package com.example.timerapp.ui.timer.components
+package com.example.timerapp.presentation.ui.timer.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.example.timerapp.R
-import com.example.timerapp.ui.timer.TimerViewmodel
+import com.example.timerapp.presentation.ui.timer.TimerViewmodel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

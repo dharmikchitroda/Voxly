@@ -1,4 +1,4 @@
-package com.example.timerapp.ui.timer.components
+package com.example.timerapp.presentation.ui.timer.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

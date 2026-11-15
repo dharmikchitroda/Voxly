@@ -1,4 +1,4 @@
-package com.example.timerapp.ui.timer.components
+package com.example.timerapp.presentation.ui.timer.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.timerapp.ui.timer.TimerViewmodel
+import com.example.timerapp.presentation.ui.timer.TimerViewmodel
 @Composable
 fun PracticeUI(vm: TimerViewmodel = viewModel()) {
 
