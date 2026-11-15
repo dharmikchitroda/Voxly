@@ -1,6 +1,6 @@
 package com.example.timerapp
 
-import com.example.timerapp.util.Helper
+import com.example.timerapp.core.util.Helper
 import junit.framework.TestCase.assertEquals
 import org.junit.After
 import org.junit.Before

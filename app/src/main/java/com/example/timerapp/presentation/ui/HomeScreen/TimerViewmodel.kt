@@ -1,8 +1,7 @@
-package com.example.timerapp.presentation.ui.timer
+package com.example.timerapp.presentation.ui.HomeScreen
 
 import android.app.Application
 import android.util.Log
-import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +10,7 @@ import com.example.timerapp.R
 import com.example.timerapp.data.local.SoundSettings
 import com.example.timerapp.data.model.CompletionSoundPreset
 import com.example.timerapp.data.model.TimerPreset
-import com.example.timerapp.util.VoskManager
+import com.example.timerapp.core.util.VoskManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -93,14 +92,6 @@ class TimerViewmodel(app: Application) : AndroidViewModel(app) {
         _TimerRuning.value = false
     }
 
-    fun TimerFormatter(time: Int): String {
-
-        val sec = time % 60
-        val min = time / 60
-
-        return "%02d:%02d".format(min, sec)
-
-    }
 
     // list data of chips ( presets )
     val listChipsdata: List<TimerPreset> = listOf(

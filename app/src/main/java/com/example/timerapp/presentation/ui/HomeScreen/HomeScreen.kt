@@ -1,9 +1,8 @@
-package com.example.timerapp.presentation.ui.timer
+package com.example.timerapp.presentation.ui.HomeScreen
 
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,7 +16,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
@@ -35,12 +33,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,18 +43,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.timerapp.R
-import com.example.timerapp.presentation.ui.timer.components.Bottomsheet
-import com.example.timerapp.presentation.ui.timer.components.CustomDurationbtn
-import com.example.timerapp.presentation.ui.timer.components.PresetChip
-import com.example.timerapp.presentation.ui.timer.components.SoundChip
-import com.example.timerapp.presentation.ui.timer.components.TimeChooserDialog
-import com.example.timerapp.presentation.ui.timer.components.Topbar
-import com.example.timerapp.util.SounPoolManager
-import com.example.timerapp.util.TtsManager
+import com.example.timerapp.presentation.components.Bottomsheet
+import com.example.timerapp.presentation.components.CustomDurationbtn
+import com.example.timerapp.presentation.components.PresetChip
+import com.example.timerapp.presentation.components.TimeChooserDialog
+import com.example.timerapp.presentation.components.TopAppbar
+import com.example.timerapp.core.util.SounPoolManager
+import com.example.timerapp.core.util.TtsManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TimerScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     val context = LocalContext.current
 
     val viewmodel: TimerViewmodel = viewModel()
@@ -118,10 +112,8 @@ fun TimerScreen(modifier: Modifier = Modifier) {
 
     Scaffold(
         topBar = {
-            Topbar() {
-
+            TopAppbar() {
                 showBottomSheet = !showBottomSheet
-
             }
         },
         modifier = modifier
@@ -137,32 +129,12 @@ fun TimerScreen(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            // Round text timer
-            Box(
-                Modifier
-                    .size(300.dp),
-                Alignment.Center,
-            ) {
-                CircularProgressIndicator(
-                    progress = { viewmodel.progressinf() },
-                    modifier = Modifier.size(300.dp),
-                    color = if (viewmodel.progressinf() > 0.75f) colorResource(R.color.Secondry)
-                    else colorResource(R.color.Primary),
-                    strokeWidth = 15.dp,
-                    strokeCap = StrokeCap.Round,
-                    gapSize = 0.dp,
-                    trackColor = Color.Black.copy(alpha = 0.08f),
-                )
+            // Circular Progress Bar
+            RoundProgressIndicator(viewModel = viewmodel, time = time)
 
-                Text(
-                    viewmodel.TimerFormatter(time),
-                    fontSize = 105.sp,
-                    fontFamily = FontFamily(Font(R.font.ds_digit)),
-                    modifier = Modifier.padding(30.dp)
-                )
-            }
-            Spacer(Modifier.height(10.dp))
-// sound btn
+            Spacer(Modifier.height(12.dp))
+
+            // sound btn
             SoundChip(
                 isOn = soundOn,
                 onClick = { viewmodel.SetsoundOnOff() })
@@ -282,7 +254,7 @@ fun TimerScreen(modifier: Modifier = Modifier) {
 @Composable
 private fun preview() {
 
-    TimerScreen()
+    HomeScreen()
 }
 
 // navigation

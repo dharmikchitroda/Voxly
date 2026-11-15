@@ -1,4 +1,4 @@
-package com.example.timerapp.util
+package com.example.timerapp.core.util
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
